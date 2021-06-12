@@ -19,22 +19,22 @@ $ open https://www.vagrantup.com/intro/index.html
 - [x] 3. Составить отчет и отправить ссылку личным сообщением в **Slack**
 
 ## Tutorial
-1 Устанавливаем значение переменных окружения
-2 Указываем имя пользователя Github
-3 Указываем используемый пакетный менеджер (apt)
+1. Устанавливаем значение переменных окружения
+2. Указываем имя пользователя Github
+3. Указываем используемый пакетный менеджер (apt)
 ```sh
 $ export GITHUB_USERNAME=<имя_пользователя>
 $ export PACKAGE_MANAGER=<пакетный_менеджер>
 ```
-4 Переходим в рабочую директорию
-5 Устанавливаем vagrant
+4. Переходим в рабочую директорию
+5. Устанавливаем vagrant
 ```sh
 $ cd ${GITHUB_USERNAME}/workspace
 $ ${PACKAGE_MANAGER} install vagrant
 ```
-6 Выводим версию скаченного vagrant
-7 Создаем новую виртуальную машину
-8 Выводим содержимое Vagrantfile
+6. Выводим версию скаченного vagrant
+7. Создаем новую виртуальную машину
+8. Выводим содержимое Vagrantfile
 
 ```sh
 $ vagrant version
@@ -42,12 +42,12 @@ $ vagrant init bento/ubuntu-19.10
 $ less Vagrantfile
 $ vagrant init -f -m bento/ubuntu-19.10
 ```
-9 Создаем директорию shared
+9. Создаем директорию shared
 
 ```sh
 $ mkdir shared
 ```
-10 В файл Vagrantfile записываем комманды для запуска скрипта 
+10. В файл Vagrantfile записываем комманды для запуска скрипта 
 ```sh
 $ cat > Vagrantfile <<EOF
 \$script = <<-SCRIPT
@@ -62,7 +62,7 @@ sudo chown -R developer /home/developer
 SCRIPT
 EOF
 ```
-11 В файл Vagrantfile записываем конфигурацию для виртуальной машины
+11. В файл Vagrantfile записываем конфигурацию для виртуальной машины
  vagrant-vbguest - это плагин, который автоматически обновляет гостевые дополнения VirtualBox
 ```sh
 $ cat >> Vagrantfile <<EOF
@@ -72,7 +72,7 @@ Vagrant.configure("2") do |config|
   config.vagrant.plugins = ["vagrant-vbguest"]
 EOF
 ```
-12 Продолжаем конфигурацию для виртуальной машины
+12. Продолжаем конфигурацию для виртуальной машины
 ```sh
 $ cat >> Vagrantfile <<EOF
 
@@ -92,16 +92,16 @@ $ cat >> Vagrantfile <<EOF
 end
 EOF
 ```
-13 Выполняем команду для устронения неполадок
+13.Выполняем команду для устронения неполадок
 "vagrant plugin install vagrant-vbguest"
-14 vagrant validate - проверка корректности файла Vagrantfile
-15 Просмотрим список вируальных машин и их статусы
-16 Запуск виртуальной машины 
-17 информация о проброске портов
-18 подключение по ssh к запущенной виртуальной машине
-19 посмотреть список сохранённых состояний виртальной машины
-20 остановить виртуальную машину
-21 востановить состояние виртуальной машины по снимку
+14. vagrant validate - проверка корректности файла Vagrantfile
+15. Просмотрим список вируальных машин и их статусы
+16. Запуск виртуальной машины 
+17. информация о проброске портов
+18. подключение по ssh к запущенной виртуальной машине
+19. посмотреть список сохранённых состояний виртальной машины
+20. остановить виртуальную машину
+21. востановить состояние виртуальной машины по снимку
 
 ```sh
 $ vagrant validate
@@ -118,7 +118,7 @@ $ vagrant snapshot list
 $ vagrant halt
 $ vagrant snapshot pop
 ```
-22 настраиваем Vagrant для работы с VMware
+22. настраиваем Vagrant для работы с VMware
 ```ruby
   config.vm.provider :vmware_esxi do |esxi|
 
@@ -150,3 +150,6 @@ $ vagrant up --provider=vmware_esxi
 - [Vagrant vbguest plugin](https://github.com/dotless-de/vagrant-vbguest)
 - [Vagrant disksize plugin](https://github.com/sprotheroe/vagrant-disksize)
 - [Vagrant vmware esxi plugin](https://github.com/josenk/vagrant-vmware-esxi)
+
+
+Copyright (c) 2015-2021 The ISC Authors
